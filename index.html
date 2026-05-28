@@ -31,7 +31,7 @@
             height: 200px;
             background-color: white;
             color: rgb(123, 82, 255);
-            animation: expansion 1.5s infinite ease-in-out;
+            animation: expansion 1s infinite ease-in-out;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -48,7 +48,7 @@
             background-color: rgb(176, 93, 93);
             position: absolute;
             top: 1000px;
-            right: 5vw;
+            right: 10vw;
             display: none;
             cursor: pointer;
             display: flex;
@@ -59,7 +59,7 @@
         }
         @keyframes expansion{
             0%{transform: scale(1);}
-            50%{transform: scale(1.4);}
+            50%{transform: scale(1.2);}
             100%{transform: scale(1);}
         }
     </style>
@@ -99,18 +99,23 @@
                 <div style="
                     position: absolute;
                     top: 800px;
-                    left: 50px;
+                    right: 10vw;
                     display: flex;
                     flex-direction: column;
                     gap: 10px;
                 ">
                   
                     <input type="text" id="user-answer"
-                        style="width: 700px; font-size: 30px;" 
-                        placeholder="払いますか？はいかyesで答えてください">
+                        style="width: 1000px; 
+                        font-size: 30px;
+                        font-family: 'Hiragino Mincho ProN','MS Mincho',serif;"
+                        placeholder="払いますか？はいで答えてください。Will you pay? Please answer yes.">
                             
                     <button id="check-btn"
-                    style="font-size: 30px; cursor: pointer;">送信完了ボタン</button>
+                    style="font-size: 30px;
+                     cursor: pointer;
+                     font-family: 'Hiragino Mincho ProN','MS Mincho',serif;
+                     ">送信完了ボタン Transfer now</button>
                 </div>
                 `;
             document.getElementById("check-btn").onclick = ()=>{
@@ -118,21 +123,21 @@
                 const color = document.body.style.backgroundColor;
                 if (answer === "はい"){
                     alert("誠にありがとうございました。後ほど担当者からご連絡いたします。");
-                    document.body.style.backgroundColor = "lightblue";
                 } else if (answer === "yes"){
-                        alert("thank you very much.");
+                        alert("Thank you very much.");
                 } else{
                     alert("ちゃんと入れてなかったのではいということで。ありがとうございました！");
                 }
                 shi2.innerText = "上に行ったら何かあるよ。";
+                document.body.style.backgroundColor = "lightblue";
                 setTimeout(() => {
                     shi2.style.display = "none";
                 }, 5000);
-                const selif = ["アホなんか！<br>ネットは怖いんだよ！<br>北極！ホッキョクグマ出てきそうワホーつって<br>とかいってるからアホになるんだよ",
-                "まあ、これはジョークウイルスだけどね！<br>この文字が明朝体ってことに気づいたら褒め称えてあげるよ！"];
+                const selif = ["アホなんか！<br>ネットは怖いんだよ！<br>北極！ホッキョクグマ出てきそうワホーつって<br>とかいってるからアホになるんだよ！",
+                "まあ、これはジョークウイルスだけどね！<br>この文字が明朝体ってことに気づいた人いる？まあ、気付く人は少ないと思うけど！"];
                 setTimeout(() => {
                     for(let i = 0; i < selif.length; i++){
-                        area.innerHTML += `<h1 class='small-h1'>${selif[i]}</h1>`;
+                        area.innerHTML += `<h1 class='30px'>${selif[i]}</h1>`;
                     }
                 }, 2000);
             };
